@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include perfect_theme *.css
+recursive-include perfect_theme *.csv
+recursive-include perfect_theme *.html
+recursive-include perfect_theme *.ico
+recursive-include perfect_theme *.js
+recursive-include perfect_theme *.json
+recursive-include perfect_theme *.md
+recursive-include perfect_theme *.png
+recursive-include perfect_theme *.py
+recursive-include perfect_theme *.svg
+recursive-include perfect_theme *.txt
+recursive-exclude perfect_theme *.pyc
