@@ -8,17 +8,34 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "himiismail123@gmail.com"
 app_license = "MIT"
+app_logo_url = "/assets/perfect_theme/images/theme-favicon.svg"
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/perfect_theme/css/perfect_theme.css"
-# app_include_js = "/assets/perfect_theme/js/perfect_theme.js"
+#   app_include_css = "/assets/perfect_theme/css/StyleDesk123.css"
+app_include_css = "/assets/perfect_theme/css/StyleDesk4.css"
+app_include_js = ["/assets/perfect_theme/js/perfect_theme10.js"]
 
 # include js, css files in header of web template
-# web_include_css = "/assets/perfect_theme/css/perfect_theme.css"
-# web_include_js = "/assets/perfect_theme/js/perfect_theme.js"
+web_include_css = "/assets/perfect_theme/css/perfect_theme3.css"
+web_include_js = "/assets/perfect_theme/js/theme_footer.js"
+
+website_context = {
+    "favicon": "/assets/perfect_theme/images/theme-favicon.svg",
+	"splash_image": "/assets/perfect_theme/images/theme-logo.png"
+}
+
+# website_context = {
+#     "header_html": "includes/perfect_theme_header"
+# }
+# def extend_website_routes(context):
+#     context.update({
+#         "website_context": "perfect_theme"
+#     })
+
+# base_template = "perfect_theme/templates/base.html"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "perfect_theme/public/scss/website"
@@ -57,7 +74,11 @@ app_license = "MIT"
 # ------------
 
 # before_install = "perfect_theme.install.before_install"
+# apps/perfect_theme/perfect_theme/hooks.py
+
+# تضمين دوال التثبيت وإلغاء التثبيت
 # after_install = "perfect_theme.install.after_install"
+# before_uninstall = "perfect_theme.install.before_uninstall"
 
 # Uninstallation
 # ------------

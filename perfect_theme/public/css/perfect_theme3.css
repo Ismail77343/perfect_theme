@@ -1,0 +1,23 @@
+/* //Ismail Code */
+.navbar{
+	background:linear-gradient(90deg, #20708d, #e8eaecb5) !important;
+}
+.web-footer{
+	background:linear-gradient(90deg, #20708d, #e8eaecb5) !important;
+}
+.bg-ground{
+	width: 100%;
+	position: fixed;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.page-card{
+	background: linear-gradient(-90deg, #20708d47, #e8eaec96) !important;
+}
+/* *{
+	background: black !important;
+} */
+/* //End Ismail Code */

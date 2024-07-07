@@ -1,0 +1,76 @@
+:root,
+[data-theme="light"]{
+	--sidebar-select-color:#ab1d5c !important;
+	--primary:#ab1d5c !important;
+	--bg-light-gray:#ab1d5ca8 !important;
+	/* --bg-color:rgba(255, 255, 255, 0.479); */
+}
+
+.main-section{
+    /* background:black !important; */
+    background-image: url("../images/111.png") !important;
+}
+.page-container{
+	background-image: url("../images/111.png") !important;
+	/* background-size: cover; */
+}
+.bg-ground{
+	width: 100%;
+	position: fixed;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+.page-body,.page-head,.navbar{
+	background: transparent !important;
+}
+.widget,.form-dashboard-section,.card-section{
+	background-image: url("../images/11111.png");
+	background-color: #ffffff38;
+}
+.selected,.standard-sidebar-item:hover{
+	color: white !important;
+}
+.standard-sidebar-item{
+	border:1px #ab1d5c solid !important;
+}
+.widget-body a{
+	background: #ab1d5c;
+	color: white !important;
+
+}
+.onboarding-steps-wrapper .active{
+	background: #ab1d5d8e !important;
+	color: white !important;
+
+}
+.widget.links-widget-box .link-item:hover{
+	background: #ab1d5d80;
+	color: white !important;
+}
+.link-item .disabled-link{
+	color: white !important;
+}
+.search-bar{
+	max-width: none;
+}
+.app-logo{
+	width:85px !important;
+	max-height:none !important;
+}
+.splash img{
+	width: 75% !important;
+	max-width:none !important;
+	max-height:none !important;
+	display: block !important;
+	margin: auto !important;
+}
+.page-container .layout-main-section{
+	background-image: url("../images/11111.png");
+    background-size: cover;
+	box-shadow: -3px 4px 12px #fdfdfd !important;
+}
+/* *{
+	background: transparent !important;
+} */
