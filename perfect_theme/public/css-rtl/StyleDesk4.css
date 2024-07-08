@@ -29,8 +29,11 @@
 	background-image: url("../images/11111.png");
 	background-color: #ffffff38;
 }
-.selected,.standard-sidebar-item:hover{
+.selected,.standard-sidebar-item:hover,.standard-sidebar-item:hover .item-anchor{
 	color: white !important;
+}
+.sidebar-item-icon .icon{
+	fill: white;
 }
 .standard-sidebar-item{
 	border:1px #ab1d5c solid !important;
