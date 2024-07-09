@@ -79,6 +79,9 @@
 input[type="text"]{
 	background: white !important;
 }
+#freeze .freeze-message-container{
+	background: rgba(255, 255, 255, 0.342) !important;
+}
 /* *{
 	background: transparent !important;
 } */
