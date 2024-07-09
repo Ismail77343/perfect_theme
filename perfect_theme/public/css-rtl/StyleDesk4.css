@@ -33,7 +33,7 @@
 	color: white !important;
 }
 .sidebar-item-icon .icon{
-	fill: white;
+	fill: white !important;
 }
 .standard-sidebar-item{
 	border:1px #ab1d5c solid !important;
@@ -73,6 +73,9 @@
 	background-image: url("../images/11111.png");
     background-size: cover;
 	box-shadow: -3px 4px 12px #fdfdfd !important;
+}
+input[type="text"]{
+	background: white !important;
 }
 /* *{
 	background: transparent !important;
