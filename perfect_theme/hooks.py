@@ -26,7 +26,9 @@ website_context = {
     "favicon": "/assets/perfect_theme/images/theme-favicon.svg",
 	"splash_image": "/assets/perfect_theme/images/theme-logo.png"
 }
-
+override_whitelisted_methods = {
+    'perfect_theme.api.get_items': 'perfect_theme.api.get_items'
+}
 # website_context = {
 #     "header_html": "includes/perfect_theme_header"
 # }

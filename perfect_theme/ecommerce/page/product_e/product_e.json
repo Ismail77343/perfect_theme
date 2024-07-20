@@ -1,0 +1,23 @@
+{
+ "content": null,
+ "creation": "2024-07-20 15:48:46.130418",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-07-20 15:52:22.128766",
+ "modified_by": "Administrator",
+ "module": "ecommerce",
+ "name": "product_e",
+ "owner": "Administrator",
+ "page_name": "product_e",
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Products"
+}
