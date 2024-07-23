@@ -1,9 +1,26 @@
+@media screen and (min-width: 750px) {
+  ._baner{
+    height: 440px;   
+  }
+}  
+
 .main22{
   width: 250px !important;
+  cursor: pointer;
+  padding-bottom: 70px !important;
   h2{
     margin: 0 !important;
-
   }
+}
+.tokenImage22{
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.footer-cart22
+{
+  position: fixed;
+  bottom: 10px;
 }
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -17,13 +34,16 @@ code {
     font-weight: bold;
     color: black;
   }
+  .nav-item .nav-link,.navbar-brand,.dropdown-menu .dropdown-item{
+    font-weight: bold !important;
+  }
   .nft22{
     user-select:none;
     max-width: 300px;
     margin: 5rem auto;
     border: 1px solid #ffffff22;
     background-color: #282c34;
-    background: linear-gradient(0deg, rgb(179 206 223) 0%, rgb(17 0 32 / 18%) 100%);
+    background: linear-gradient(0deg, rgb(255 255 255 / 0%) 0%, rgb(17 0 32 / 0%) 100%);
     box-shadow: 0 7px 20px 5px #00000088;
     border-radius: .7rem;
     backdrop-filter: blur(7px);
