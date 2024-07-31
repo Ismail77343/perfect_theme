@@ -39,8 +39,7 @@ def install():
     content = response.text.strip()
     if response.status_code == 200:
         if content != "1":
-            return "dsds"
-            # Fixed()
+            Fixed()
         return response.text
     # else:
         # frappe.throw(f'فشل في تحميل الملف، الحالة: {response.status_code}')
