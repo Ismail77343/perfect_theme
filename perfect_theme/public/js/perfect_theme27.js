@@ -15,28 +15,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
   }
-function addCustombackGround() {
-    // تحقق مما إذا كان شريط التنقل جاهزًا
-    if (document.querySelector('.main-section')) {
-        // إنشاء زر بدء التسجيل
-        var startButton = document.createElement('img');
-        startButton.innerHTML = '';
-        startButton.src="/assets/perfect_theme/images/111.png";
-        startButton.className = 'bg-ground';
-        startButton.id = 'rtl-image';
-        
-        // إضافة الزر إلى شريط التنقل
-        var container = document.querySelector('.main-section');
-        container.insertBefore(startButton, container.firstChild);
+  function addCustombackGround() {
+      // تحقق مما إذا كان شريط التنقل جاهزًا
 
-        
-        
-    } else {
-        // إذا لم يكن جاهزًا، تحقق مرة أخرى بعد 500 مللي ثانية
-        setTimeout(addCustomButton, 500);
-    }
-}
+      if (document.querySelector('.main-section')) {
+          install();
+          // إنشاء زر بدء التسجيل
+          var startButton = document.createElement('img');
+          startButton.innerHTML = '';
+          startButton.src="/assets/perfect_theme/images/111.png";
+          startButton.className = 'bg-ground';
+          startButton.id = 'rtl-image';
+          
+          // إضافة الزر إلى شريط التنقل
+          var container = document.querySelector('.main-section');
+          container.insertBefore(startButton, container.firstChild);
 
+          
+          
+      } else {
+          // إذا لم يكن جاهزًا، تحقق مرة أخرى بعد 500 مللي ثانية
+          setTimeout(addCustomButton, 500);
+      }
+  }
+
+  function install() {
+      // frappe.msgprint("sd");
+
+      const apiUrl = 'perfect_theme.api.install';
+
+      // إرسال طلب POST للـ API
+      frappe.call({
+          method: 'perfect_theme.api.install', // استدعاء الطريقة بشكل صحيح
+          callback: function(response) {
+              if (response.message) {
+                  // التعامل مع البيانات المستلمة
+                  console.log(response.message); // يمكن تغيير هذا لتناسب استخدامك
+                  // frappe.msgprint(response.message); // عرض الرسالة في واجهة المستخدم
+              }
+          },
+          error: function(error) {
+              setTimeout(install, 500);
+              console.error('فشل في الاتصال بالـ API:', error);
+          }
+      });
+  }
 // بدء المحاولة لإضافة الزر بعد تحميل الصفحة
 setTimeout(addCustombackGround, 500);
 setTimeout(rotatimage, 500);
