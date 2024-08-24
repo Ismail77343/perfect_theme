@@ -29,6 +29,22 @@ website_context = {
 override_whitelisted_methods = {
     'perfect_theme.api.get_items': 'perfect_theme.api.get_items'
 }
+
+def rename_workspace():
+    from frappe.custom.doctype.customize_form.customize_form import doc
+    # البحث عن الـ Workspace الحالي
+    workspace = frappe.get_doc("Workspace", "ERPNext Settings")
+    if workspace:
+        # تغيير الاسم إلى Erpalfras Settings
+        workspace.label = "Erpalfras Settings"
+        workspace.save()
+        frappe.db.commit()
+
+doc_events = {
+    "*": {
+        "after_install": "erpalfras.perfect_theme"
+    }
+}
 # website_context = {
 #     "header_html": "includes/perfect_theme_header"
 # }
