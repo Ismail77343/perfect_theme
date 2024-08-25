@@ -31,7 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
           var container = document.querySelector('.main-section');
           container.insertBefore(startButton, container.firstChild);
 
+          // إنشاء زر بدء التسجيل
+          var startButton = document.createElement('div');
+          startButton.innerHTML = '';
+          startButton.className = 'overlay22';
           
+          // إضافة الزر إلى شريط التنقل
+          var container = document.querySelector('.main-section');
+          container.insertBefore(startButton, container.firstChild);
           
       } else {
           // إذا لم يكن جاهزًا، تحقق مرة أخرى بعد 500 مللي ثانية

@@ -15,8 +15,8 @@ app_logo_url = "/assets/perfect_theme/images/theme-favicon.svg"
 
 # include js, css files in header of desk.html
 #   app_include_css = "/assets/perfect_theme/css/StyleDesk123.css"
-app_include_css = "/assets/perfect_theme/css/StyleDesk4.css"
-app_include_js = ["/assets/perfect_theme/js/perfect_theme27.js"]
+app_include_css = "/assets/perfect_theme/css/StyleDesk20.css"
+app_include_js = ["/assets/perfect_theme/js/perfect_theme28.js"]
 
 # include js, css files in header of web template
 web_include_css = "/assets/perfect_theme/css/perfect_theme3.css"
