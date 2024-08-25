@@ -40,11 +40,9 @@ def rename_workspace():
         workspace.save()
         frappe.db.commit()
 
-doc_events = {
-    "*": {
-        "after_install": "erpalfras.perfect_theme"
-    }
-}
+after_install = "perfect_theme.scripts.rename_workspace.modify_workspaces"
+
+
 # website_context = {
 #     "header_html": "includes/perfect_theme_header"
 # }
