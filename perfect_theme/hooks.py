@@ -19,7 +19,7 @@ app_include_css = "/assets/perfect_theme/css/StyleDesk20.css"
 app_include_js = ["/assets/perfect_theme/js/perfect_theme28.js"]
 
 # include js, css files in header of web template
-web_include_css = "/assets/perfect_theme/css/perfect_theme3.css"
+web_include_css = "/assets/perfect_theme/css/perfect_theme4.css"
 web_include_js = "/assets/perfect_theme/js/theme_footer.js"
 
 website_context = {
