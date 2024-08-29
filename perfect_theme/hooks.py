@@ -33,15 +33,21 @@ override_whitelisted_methods = {
 def rename_workspace():
     from frappe.custom.doctype.customize_form.customize_form import doc
     # البحث عن الـ Workspace الحالي
-    workspace = frappe.get_doc("Workspace", "ERPNext Settings")
+    workspace = frappe.get_doc("Workspace", "erpalfras Settings")
     if workspace:
         # تغيير الاسم إلى Erpalfras Settings
         workspace.label = "Erpalfras Settings"
         workspace.save()
         frappe.db.commit()
 
-after_install = "perfect_theme.scripts.rename_workspace.modify_workspaces"
+after_install = "perfect_theme.install.after_install"
 
+
+
+doctype_js = {
+    "Sales Invoice": "public/js/tax2.js",
+    "Purchase Invoice": "public/js/tax2.js"
+}
 
 # website_context = {
 #     "header_html": "includes/perfect_theme_header"

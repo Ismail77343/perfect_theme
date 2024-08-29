@@ -5,26 +5,26 @@ import frappe
 def delete_workspace():
     try:
         # البحث عن الـ Workspace حسب الاسم
-        workspace = frappe.get_doc("Workspace", {"label": "ERPNext Integrations"})
+        workspace = frappe.get_doc("Workspace", {"label": "erpalfras Integrations"})
         if workspace:
             # حذف الـ Workspace
             workspace.delete()
             frappe.db.commit()
-            print("Workspace 'ERPNext Integrations' deleted successfully.")
+            print("Workspace 'erpalfras Integrations' deleted successfully.")
         else:
-            print("Workspace 'ERPNext Integrations' not found.")
+            print("Workspace 'erpalfras Integrations' not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
 def modify_workspaces():
     try:
         # البحث عن الـ Workspace المراد حذفه
-        workspace_to_delete = frappe.db.get_value("Workspace", {"label": "ERPNext Integrations"}, "name")
+        workspace_to_delete = frappe.db.get_value("Workspace", {"label": "erpalfras Integrations"}, "name")
         if workspace_to_delete:
             frappe.delete_doc("Workspace", workspace_to_delete)
-            print("Workspace 'ERPNext Integrations' deleted successfully.")
+            print("Workspace 'erpalfras Integrations' deleted successfully.")
         else:
-            print("Workspace 'ERPNext Integrations' not found.")
+            print("Workspace 'erpalfras Integrations' not found.")
 
 
 
@@ -33,7 +33,7 @@ def modify_workspaces():
     
     try:
         # البحث عن الـ Workspace المراد إعادة تسميته
-        workspace_to_rename = frappe.db.get_value("Workspace", {"name": "ERPNext Settings"}, "name")
+        workspace_to_rename = frappe.db.get_value("Workspace", {"name": "erpalfras Settings"}, "name")
         if workspace_to_rename:
             workspace_doc = frappe.get_doc("Workspace", workspace_to_rename)
             workspace_doc.label = "ErpAlfras Settings"
@@ -45,16 +45,17 @@ def modify_workspaces():
   
             workspace_doc.save()
             frappe.db.commit()
-            print("Workspace 'ERPNext Settings' renamed to 'ErpAlfras Settings' successfully.")
+            print("Workspace 'erpalfras Settings' renamed to 'ErpAlfras Settings' successfully.")
         else:
-            print("Workspace 'ERPNext Settings' not found.")
+            print("Workspace 'erpalfras Settings' not found.")
     
     except Exception as e:
         print(f"An error occurred: {e}")
+
 def rename_workspace():
     # الوصول إلى قاعدة البيانات
     try:
-        workspace = frappe.get_doc("Workspace", {"label": "ERPNext Settings"})
+        workspace = frappe.get_doc("Workspace", {"label": "erpalfras Settings"})
         if workspace:
             # تغيير الاسم
             workspace.label = "Erpalfras Settings"
@@ -63,7 +64,7 @@ def rename_workspace():
             frappe.db.commit()
             print("Workspace renamed successfully.")
         else:
-            print("Workspace with label 'ERPNext Settings' not found.")
+            print("Workspace with label 'erpalfras Settings' not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
