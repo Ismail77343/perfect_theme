@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-29 15:00:23.391087",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_rcld",
+  "company",
+  "template_tax"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_rcld",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "template_tax",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Template Tax",
+   "options": "Item Tax Template"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-29 15:12:13.045851",
+ "modified_by": "Administrator",
+ "module": "perfect_theme",
+ "name": "Template Tax Company",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

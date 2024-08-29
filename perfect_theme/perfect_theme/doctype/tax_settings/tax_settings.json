@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-29 15:03:07.406169",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_fpqg",
+  "sales",
+  "buy_settings"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_fpqg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sales",
+   "fieldtype": "Table",
+   "label": "Sales Settings",
+   "options": "Template Tax Company"
+  },
+  {
+   "fieldname": "buy_settings",
+   "fieldtype": "Table",
+   "label": "Buy Settings",
+   "options": "Template Tax Company"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-08-29 15:05:14.727451",
+ "modified_by": "Administrator",
+ "module": "perfect_theme",
+ "name": "Tax Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

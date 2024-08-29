@@ -42,11 +42,26 @@ def rename_workspace():
 
 after_install = "perfect_theme.install.after_install"
 
+doc_events = {
 
+    # "Company": {
+    #     "after_insert": "perfect_theme.scripts.company.after_save_company"
+    # },
+    "Sales Invoice": {
+		"on_submit": [
+                        "perfect_theme.tax.utils.create_qr_code",
+		],
+		"on_cancel": [
+			"perfect_theme.tax.utils.delete_qr_code_file"
+		]
+	},
+        "POS Invoice": {"on_submit": ["perfect_theme.tax.utils.create_qr_code"]},
+
+}
 
 doctype_js = {
-    "Sales Invoice": "public/js/tax2.js",
-    "Purchase Invoice": "public/js/tax2.js"
+    "Sales Invoice": "public/js/tax10.js",
+    "Purchase Invoice": "public/js/tax10.js"
 }
 
 # website_context = {

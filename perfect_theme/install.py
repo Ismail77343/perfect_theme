@@ -1,13 +1,152 @@
 import frappe;
 from frappe import _
+from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def after_install():
+    make_custom_fields()
     create_accounts()
     create_item_tax_templates()
     create_ksa_vat_settings()
-    ExecuteSales()
-    ExecuteBuy()
-    
+    # ExecuteSales()
+    # ExecuteBuy()
+    # execute()
+    add_tax_settings_to_workspace()
+
+def make_custom_fields():
+
+	is_zero_rated = dict(
+		fieldname="is_zero_rated",
+		label="Is Zero Rated",
+		fieldtype="Check",
+		fetch_from="item_code.is_zero_rated",
+		insert_after="description",
+		print_hide=1,
+	)
+
+	is_exempt = dict(
+		fieldname="is_exempt",
+		label="Is Exempt",
+		fieldtype="Check",
+		fetch_from="item_code.is_exempt",
+		insert_after="is_zero_rated",
+		print_hide=1,
+	)
+
+	purchase_invoice_fields = [
+		dict(
+			fieldname="company_trn",
+			label="Company TRN",
+			fieldtype="Read Only",
+			insert_after="shipping_address",
+			fetch_from="company.tax_id",
+			print_hide=1,
+		),
+		dict(
+			fieldname="supplier_name_in_arabic",
+			label="Supplier Name in Arabic",
+			fieldtype="Read Only",
+			insert_after="supplier_name",
+			fetch_from="supplier.supplier_name_in_arabic",
+			print_hide=1,
+		),
+	]
+
+	sales_invoice_fields = [
+		dict(
+			fieldname="company_trn",
+			label="Company TRN",
+			fieldtype="Read Only",
+			insert_after="company_address",
+			fetch_from="company.tax_id",
+			print_hide=1,
+		),
+		dict(
+			fieldname="customer_name_in_arabic",
+			label="Customer Name in Arabic",
+			fieldtype="Read Only",
+			insert_after="customer_name",
+			fetch_from="customer.customer_name_in_arabic",
+			print_hide=1,
+		),
+		dict(
+			fieldname="ksa_einv_qr",
+			label="KSA E-Invoicing QR",
+			fieldtype="Attach Image",
+			read_only=1,
+			no_copy=1,
+			hidden=1,
+		),
+	]
+
+	custom_fields = {
+		"Item": [is_zero_rated, is_exempt],
+		"Customer": [
+			dict(
+				fieldname="customer_name_in_arabic",
+				label="Customer Name in Arabic",
+				fieldtype="Data",
+				insert_after="customer_name",
+			),
+		],
+		"Supplier": [
+			dict(
+				fieldname="supplier_name_in_arabic",
+				label="Supplier Name in Arabic",
+				fieldtype="Data",
+				insert_after="supplier_name",
+			),
+		],
+		"Purchase Invoice": purchase_invoice_fields,
+		"Purchase Order": purchase_invoice_fields,
+		"Purchase Receipt": purchase_invoice_fields,
+		"Sales Invoice": sales_invoice_fields,
+		"POS Invoice": sales_invoice_fields,
+		"Sales Order": sales_invoice_fields,
+		"Delivery Note": sales_invoice_fields,
+		"Sales Invoice Item": [is_zero_rated, is_exempt],
+		"POS Invoice Item": [is_zero_rated, is_exempt],
+		"Purchase Invoice Item": [is_zero_rated, is_exempt],
+		"Sales Order Item": [is_zero_rated, is_exempt],
+		"Delivery Note Item": [is_zero_rated, is_exempt],
+		"Quotation Item": [is_zero_rated, is_exempt],
+		"Purchase Order Item": [is_zero_rated, is_exempt],
+		"Purchase Receipt Item": [is_zero_rated, is_exempt],
+		"Supplier Quotation Item": [is_zero_rated, is_exempt],
+		"Address": [
+			dict(
+				fieldname="address_in_arabic",
+				label="Address in Arabic",
+				fieldtype="Data",
+				insert_after="address_line2",
+			)
+		],
+		"Company": [
+			dict(
+				fieldname="company_name_in_arabic",
+				label="Company Name In Arabic",
+				fieldtype="Data",
+				insert_after="company_name",
+			)
+		],
+	}
+
+	create_custom_fields(custom_fields, ignore_validate=True, update=True)
+
+
+
 def create_accounts():
     create_account(" Excise 100% ")
     create_account(" Excise 50% ")
@@ -228,6 +367,49 @@ def ExecuteBuy():
         frappe.throw(_("The DocType 'Buying Settings' does not exist."))
 
 
+
+
+
+def add_tax_settings_to_workspace():
+    # تحقق مما إذا كان workspace لـ Erpalfras Settings موجودًا
+    workspace_name = "Erpalfras Settings"
+    workspace = frappe.get_doc("Workspace", workspace_name)
+
+    if workspace:
+        # تحقق مما إذا كان System Settings موجودًا في الـ workspace
+        system_settings_section = None
+        for link in workspace.links:
+            if link.label == "System Settings" and link.type == "Link":
+                system_settings_section = link
+                break
+
+        # إذا كانت System Settings موجودة
+        if system_settings_section:
+            # تحقق مما إذا كانت Tax Settings موجودة بالفعل
+            tax_settings_exists = False
+            for link in workspace.links:
+                if link.label == "Tax Settings" and link.parent_label == "System Settings":
+                    tax_settings_exists = True
+                    break
+
+            if not tax_settings_exists:
+                # إضافة Tax Settings تحت System Settings
+                workspace.append("links", {
+                    "type": "Link",
+                    "label": "Tax Settings",
+                    "link_type": "DocType",
+                    "link_to": "Tax Settings",
+                    "parent_label": "System Settings",
+                    "is_query_report": False
+                })
+                workspace.save()
+                frappe.msgprint("Tax Settings تم إضافتها بنجاح تحت System Settings")
+            else:
+                frappe.msgprint("Tax Settings موجودة بالفعل تحت System Settings")
+        else:
+            frappe.msgprint("System Settings غير موجودة في Erpalfras Settings")
+    else:
+        frappe.msgprint(f"الـ workspace {workspace_name} غير موجود")
 
 # استدعاء الدالة عند الحاجة
 
