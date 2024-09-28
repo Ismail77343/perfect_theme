@@ -14,8 +14,18 @@ from frappe.custom.doctype.custom_field.custom_field import create_custom_fields
 
 
 
-
+def add_sales_setting():
+    # تحقق مما إذا كان الحقل موجودًا بالفعل لتجنب التكرار
+    if not frappe.db.exists('Custom Field', 'Selling Settings-create_delivery_note_on_submit'):
+        create_custom_field('Selling Settings', {
+            'fieldname': 'create_delivery_note_on_submit',
+            'fieldtype': 'Check',
+            'label': 'Create Delivery Note on Submit',
+            'insert_after': 'some_field_name',  # استبدل "some_field_name" باسم الحقل المناسب
+            'reqd': 0
+        })
 def after_install():
+    add_sales_setting()
     make_custom_fields()
     create_accounts()
     create_item_tax_templates()
@@ -24,6 +34,8 @@ def after_install():
     # ExecuteBuy()
     # execute()
     add_tax_settings_to_workspace()
+
+
 
 def make_custom_fields():
 

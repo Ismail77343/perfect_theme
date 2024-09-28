@@ -50,6 +50,7 @@ doc_events = {
     "Sales Invoice": {
 		"on_submit": [
                         "perfect_theme.tax.utils.create_qr_code",
+						"perfect_theme.sales.on_submit_sales_invoice",
 		],
 		"on_cancel": [
 			"perfect_theme.tax.utils.delete_qr_code_file"
